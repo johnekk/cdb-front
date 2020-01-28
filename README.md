@@ -1,13 +1,13 @@
 # CdbFront
 
-#Install npm
+## Install npm
 sudo apt install npm
 
 
-#Install angularCLI
+## Install angularCLI
 npm install -g @angular/cli
 
-#Install the latest stable version of node/nodejs
+## Install the latest stable version of node/nodejs
 sudo npm install n -g
 sudo n stable
 
