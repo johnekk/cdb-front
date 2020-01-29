@@ -1,4 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
 /**
 * Generated theme by Material Theme Generator
 * https://materialtheme.arcsine.dev
@@ -166,19 +165,19 @@ $mat-primary: (
 $theme-primary: mat-palette($mat-primary, main, lighter, darker);
 
 body {
-  --accent-color: #fbe604;
-  --accent-lighter-color: #fef8b4;
-  --accent-darker-color: #f9db02;
+  --accent-color: #fbdc04;
+  --accent-lighter-color: #fef5b4;
+  --accent-darker-color: #f9ce02;
   --text-accent-color: #{$dark-primary-text};
   --text-accent-lighter-color: #{$dark-primary-text};
   --text-accent-darker-color: #{$dark-primary-text};
 }
 
 $mat-accent: (
-  main: #fbe604,
-  lighter: #fef8b4,
-  darker: #f9db02,
-  200: #fbe604, // For slide toggle,
+  main: #fbdc04,
+  lighter: #fef5b4,
+  darker: #f9ce02,
+  200: #fbdc04, // For slide toggle,
   contrast : (
     main: $dark-primary-text,
     lighter: $dark-primary-text,

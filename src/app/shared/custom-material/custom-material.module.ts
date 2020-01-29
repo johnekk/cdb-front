@@ -6,7 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material';
+import { MatInputModule, MatTableModule, MatPaginatorModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -21,7 +21,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule
   ],
   exports: [
     MatToolbarModule,
@@ -31,7 +33,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatGridListModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTableModule,
+    MatPaginatorModule
   ]
 })
 export class CustomMaterialModule { }
