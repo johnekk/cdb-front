@@ -17,4 +17,8 @@ export class ComputerService {
   getComputers(): Observable<Computer[]> {
       return this.httpClient.get<Computer[]>(this.url);
   }
+
+  newComputer(){
+    
+  }
 }
