@@ -15,7 +15,7 @@ import { ComputerListModule } from './computer-list/computer-list.module';
     AppRoutingModule,
     LayoutModule,
     ComputerListModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
