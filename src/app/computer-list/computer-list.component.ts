@@ -27,7 +27,8 @@ export class ComputerListComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
   }
 
   applyFilter(filterValue: string) {
