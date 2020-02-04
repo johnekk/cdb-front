@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ComputerListComponent } from './computer-list/computer-list.component';
+import { NewComputerComponent } from './new-computer/new-computer.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'computers',
+    pathMatch: 'full'
+  },
+  {
+    path: 'computers/new',
+    component: NewComputerComponent,
     pathMatch: 'full'
   }
 ];
