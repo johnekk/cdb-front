@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ComputerService } from '../shared/service/computer.service';
+import { Computer } from '../shared/model/computer.model';
 
 @Component({
   selector: 'app-new-computer',
@@ -7,9 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComputerComponent implements OnInit {
 
-  constructor() { }
+  name='';
+
+  constructor(private computerService: ComputerService){
+
+  }
 
   ngOnInit() {
+
+  }
+
+  addComputer(){
+    if(this.name.length > 2){
+
+      let computer:Computer = new Computer();
+      computer.name = this.name;
+
+      this.computerService.newComputer(computer).subscribe(
+        ()=> {
+          console.log("computer added")
+        },
+        (error) => {
+          console.log("computer not added : " + error)
+        }
+      )
+
+    }
   }
 
 }

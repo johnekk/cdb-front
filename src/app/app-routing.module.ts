@@ -6,20 +6,26 @@ import { NewComputerComponent } from './new-computer/new-computer.component';
 
 const routes: Routes = [
   {
-    path: 'computers',
-    component: ComputerListComponent,
+    path: '**',
+    redirectTo: 'computers/new',
     pathMatch: 'full'
   },
   {
-    path: '**',
-    redirectTo: 'computers',
+    path: 'computers',
+    component: ComputerListComponent,
     pathMatch: 'full'
   },
   {
     path: 'computers/new',
     component: NewComputerComponent,
     pathMatch: 'full'
+  },
+  {
+    path: '**',
+    redirectTo: 'computers',
+    pathMatch: 'full'
   }
+  
 ];
 
 @NgModule({
