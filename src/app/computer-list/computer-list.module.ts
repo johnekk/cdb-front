@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../shared/custom-material/custom-material.module';
 import { ComputerListComponent } from './computer-list.component';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 
@@ -9,7 +10,8 @@ import { ComputerListComponent } from './computer-list.component';
   declarations: [ComputerListComponent],
   imports: [
     CommonModule,
-    CustomMaterialModule
+    CustomMaterialModule,
+    NgxSpinnerModule
   ],
   exports: [
     ComputerListComponent
