@@ -18,7 +18,9 @@ export class ComputerService {
       return this.httpClient.get<Computer[]>(this.url);
   }
 
-  newComputer(){
-    
+  newComputer() {}
+
+  deleteComputer(id: number): Observable<any> {
+      return this.httpClient.delete(`${this.url}/${id}/`);
   }
 }

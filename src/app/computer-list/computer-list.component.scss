@@ -27,3 +27,12 @@
   .mat-header-cell{
     font-size: large;
   }
+
+  .delete-icon{
+    position: relative;
+    top: 5px;
+  }
+
+  .delete-icon:hover{
+    cursor: pointer;
+  }
