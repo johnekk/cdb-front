@@ -10,7 +10,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     CommonModule,
     CustomMaterialModule,
-    MatSortModule
+    MatSortModule,
     NgxSpinnerModule
   ],
   exports: [
