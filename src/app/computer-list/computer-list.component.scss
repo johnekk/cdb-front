@@ -19,3 +19,11 @@
     width: 90%;
     margin : auto;
   }
+
+  .mat-cell, .mat-header-cell{
+    padding : 15px;
+  }
+
+  .mat-header-cell{
+    font-size: large;
+  }

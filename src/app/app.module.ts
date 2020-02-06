@@ -18,6 +18,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     ComputerListModule,
     HttpClientModule,
     NgxSpinnerModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
