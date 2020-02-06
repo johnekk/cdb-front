@@ -33,7 +33,10 @@ export class ComputerListComponent implements OnInit {
   }
 
   ngOnInit() {
+<<<<<<< HEAD
     this.spinnerService.show();
+=======
+>>>>>>> feature/newcomputer
   }
 
   applyFilter(filterValue: string) {

@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { LayoutModule } from './layout/layout.module';
 import { ComputerListModule } from './computer-list/computer-list.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { NewComputerComponent } from './new-computer/new-computer.component';
+import { NewComputerModule } from './new-computer/new-computer.module';
 
 @NgModule({
   declarations: [
@@ -17,8 +19,9 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     LayoutModule,
     ComputerListModule,
     HttpClientModule,
-    NgxSpinnerModule
-
+    NgxSpinnerModule,
+    NewComputerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

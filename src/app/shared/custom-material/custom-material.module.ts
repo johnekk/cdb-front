@@ -6,7 +6,12 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+<<<<<<< HEAD
 import { MatInputModule, MatTableModule, MatPaginatorModule, MatCheckboxModule } from '@angular/material';
+=======
+import { MatInputModule, MatTableModule, MatPaginatorModule, MatSelectModule,
+   MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+>>>>>>> feature/newcomputer
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
@@ -24,7 +29,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+<<<<<<< HEAD
     MatCheckboxModule,
+=======
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+>>>>>>> feature/newcomputer
   ],
   exports: [
     MatToolbarModule,
@@ -37,7 +48,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatTableModule,
     MatPaginatorModule,
+<<<<<<< HEAD
     MatCheckboxModule
+=======
+    MatSelectModule,
+    MatDatepickerModule,
+    
+>>>>>>> feature/newcomputer
   ]
 })
 export class CustomMaterialModule { }
