@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Computer } from '../shared/model/computer.model';
 import { ComputerService } from '../shared/service/computer.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -22,13 +23,15 @@ export class ComputerListComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private readonly computerService: ComputerService) {
+  constructor(
+      private readonly computerService: ComputerService,
+      private readonly spinnerService: NgxSpinnerService
+  ) {
     this.allComputers();
   }
 
   ngOnInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.spinnerService.show();
   }
 
   applyFilter(filterValue: string) {
@@ -45,6 +48,10 @@ export class ComputerListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.computers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        setTimeout(() => {
+          /** spinner ends after 5 seconds */
+          this.spinnerService.hide();
+        }, 500);
       },
       (error) => {
         // traiter l'error
