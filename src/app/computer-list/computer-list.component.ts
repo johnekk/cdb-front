@@ -27,7 +27,9 @@ export class ComputerListComponent implements OnInit {
     this.allComputers();
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
