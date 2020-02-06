@@ -1,0 +1,67 @@
+  <div class="myContainer">
+    
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+    
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8"> 
+
+       <!-- Checkbox Column -->
+      <ng-container matColumnDef="select">
+        <th mat-header-cell *matHeaderCellDef>
+          <mat-checkbox (change)="$event ? masterToggle() : null"
+                        [checked]="selection.hasValue() && isAllSelected()"
+                        [indeterminate]="selection.hasValue() && !isAllSelected()"
+                        [aria-label]="checkboxLabel()">
+          </mat-checkbox>
+          - <mat-icon (click) ="deleteComputers($event)"
+          class="delete-icon"
+          aria-hidden="false"
+          aria-label="Example user verified icon">
+          delete_outline
+        </mat-icon>
+        </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? selection.toggle(row) : null"
+                      [checked]="selection.isSelected(row)"
+                      [aria-label]="checkboxLabel(row)">
+        </mat-checkbox>
+      </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+      </ng-container>
+ 
+      <!-- Introduced date Column -->
+      <ng-container matColumnDef="introduction date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Introduction date </th>
+        <td mat-cell *matCellDef="let row"> {{row.introduced}}</td>
+      </ng-container>
+
+      <!-- Discontinued date Column -->
+      <ng-container matColumnDef="discontinued date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Discontinued date </th>
+        <td mat-cell *matCellDef="let row"> {{row.discontinued}} </td>
+      </ng-container>
+
+      <!-- Company Column -->
+      <ng-container matColumnDef="company">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
+        <td mat-cell *matCellDef="let row"> {{row.companyDTO.name}} </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+      </tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    
+  </div>
+  <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+    <p style="color: white">Please Wait. </p>  
+  </ngx-spinner>   
