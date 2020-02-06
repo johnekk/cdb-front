@@ -7,8 +7,6 @@ import { ComputerService } from '../shared/service/computer.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NgxSpinnerService } from 'ngx-spinner';
 
-
-
 @Component({
   selector: 'app-computer-list',
   templateUrl: './computer-list.component.html',
@@ -20,6 +18,7 @@ export class ComputerListComponent implements OnInit {
   displayedColumns: string[] = ['select', 'name', 'introduction date', 'discontinued date', 'company'];
   dataSource: MatTableDataSource<Computer>;
   selection = new SelectionModel<Computer>(true, []);
+  selectionMode: boolean;
   computers: Computer[] = [];
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -29,7 +28,8 @@ export class ComputerListComponent implements OnInit {
       private readonly computerService: ComputerService,
       private readonly spinnerService: NgxSpinnerService
   ) {
-    this.allComputers();
+      this.allComputers();
+      this.selectionMode = false;
   }
 
   ngOnInit() {
@@ -50,7 +50,6 @@ export class ComputerListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.computers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
-        console.log(this.dataSource);
         setTimeout(() => {
           /** spinner ends after 5 seconds */
           this.spinnerService.hide();
@@ -82,5 +81,15 @@ export class ComputerListComponent implements OnInit {
       return `${this.isAllSelected() ? 'select' : 'deselect'} all`;
     }
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
+  }
+
+  deleteComputers() {
+    this.spinnerService.show();
+    this.selection.selected.forEach(computer => this.computerService.deleteComputer(computer.id)
+        .subscribe(() => {
+          this.allComputers();
+        }
+      )
+    );
   }
 }
