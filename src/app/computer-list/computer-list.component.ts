@@ -50,6 +50,7 @@ export class ComputerListComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.computers);
         this.dataSource.paginator = this.paginator;
         this.dataSource.sort = this.sort;
+        console.log(this.dataSource);
         setTimeout(() => {
           /** spinner ends after 5 seconds */
           this.spinnerService.hide();
@@ -64,7 +65,7 @@ export class ComputerListComponent implements OnInit {
   /** Whether the number of selected elements matches the total number of rows. */
   isAllSelected() {
     const numSelected = this.selection.selected.length;
-    const numRows = this.dataSource.data.length;
+    const numRows = (this.dataSource !== undefined) ? this.dataSource.data.length : 0;
     return numSelected === numRows;
   }
 
