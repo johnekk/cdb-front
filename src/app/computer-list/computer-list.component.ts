@@ -33,10 +33,7 @@ export class ComputerListComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
     this.spinnerService.show();
-=======
->>>>>>> feature/newcomputer
   }
 
   applyFilter(filterValue: string) {
@@ -86,7 +83,7 @@ export class ComputerListComponent implements OnInit {
     return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.id + 1}`;
   }
 
-  deleteComputers() {
+  deleteComputer() {
     this.spinnerService.show();
     this.selection.selected.forEach(computer => this.computerService.deleteComputer(computer.id)
         .subscribe(() => {

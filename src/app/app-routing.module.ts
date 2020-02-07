@@ -5,11 +5,8 @@ import { ComputerListComponent } from './computer-list/computer-list.component';
 import { NewComputerComponent } from './new-computer/new-computer.component';
 
 const routes: Routes = [
-  {
-    path: '**',
-    redirectTo: 'computers/new',
-    pathMatch: 'full'
-  },
+ 
+  
   {
     path: 'computers',
     component: ComputerListComponent,

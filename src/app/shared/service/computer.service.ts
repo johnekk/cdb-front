@@ -22,4 +22,8 @@ export class ComputerService {
     return this.httpClient.post<Computer>(this.url, computer)
   }
 
+  deleteComputer(id: number): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}/`);
+}
+
 }
