@@ -2,27 +2,29 @@
   <form [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
     <div class="example-container container-contact1">
         <mat-form-field>
-          <input matInput placeholder="Name" [(ngModel)]="name" formControlName="name" name="name">
+          <input matInput placeholder="Name" formControlName="name" name="name" id="name">
           <mat-error *ngIf="!computerForm.get('name').valid">
             name must be at least 2 characters long
-            </mat-error>
-            
+            </mat-error> 
         </mat-form-field>
       
         <mat-form-field>
-            <input matInput [matDatepicker]="picker1" placeholder="Date Introduced" formControlName="introduced">
-            <mat-error *ngIf="!computerForm.get('name').introduced">
-              this field is required
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker1" placeholder="Date Introduced" formControlName="introduced" >
+            <mat-error *ngIf="!computerForm.get('introduced').valid">
+              Date format must be MM/DD/YYYY
               </mat-error>
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
     
         <mat-form-field>
-            <input matInput [matDatepicker]="picker" placeholder="Date Discontinued" formControlName="discontinued" >
-            <mat-error *ngIf="!computerForm.get('name').discontinued">
-              this field is required
-              </mat-error>
+            <input matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Date Discontinued" formControlName="discontinued" (change)="introducedBeforeDiscontinued()">
+            <!-- <label style="color: red;" *ngIf="!isDateBefore">
+              Date introduced must be before discontinued
+            </label> -->
+            <mat-error *ngIf="!computerForm.get('discontinued').valid">
+              Date format must be MM/DD/YYYY
+            </mat-error>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
@@ -31,9 +33,6 @@
           <mat-select placeholder="Company">
             <mat-option value="option">Option</mat-option>
           </mat-select>
-          <mat-error *ngIf="introducedBeforeDiscontinued()">
-            this field is required
-            </mat-error>
         </mat-form-field>   
     
         <div class="container-contact1-form-btn">
