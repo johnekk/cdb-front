@@ -9,6 +9,9 @@ import { LoggingModule } from './logging/logging.module';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { NewComputerComponent } from './new-computer/new-computer.component';
+import { NewComputerModule } from './new-computer/new-computer.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import {MatButtonModule} from '@angular/material/button';
     HttpClientModule,
     LoggingModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    NgxSpinnerModule,
+    NewComputerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

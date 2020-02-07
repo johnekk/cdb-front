@@ -1,4 +1,5 @@
 import { Company } from './company.model';
+import { Identifiers } from '@angular/compiler';
 
 
 export class Computer {

@@ -1,0 +1,46 @@
+<div>
+  <form [formGroup]="computerForm" (ngSubmit)="onSubmitForm()">
+    <div class="example-container container-contact1">
+        <mat-form-field>
+          <input matInput placeholder="Name" [(ngModel)]="name" formControlName="name" name="name">
+          <mat-error *ngIf="!computerForm.get('name').valid">
+            name must be at least 2 characters long
+            </mat-error>
+            
+        </mat-form-field>
+      
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker1" placeholder="Date Introduced" formControlName="introduced">
+            <mat-error *ngIf="!computerForm.get('name').introduced">
+              this field is required
+              </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input matInput [matDatepicker]="picker" placeholder="Date Discontinued" formControlName="discontinued" >
+            <mat-error *ngIf="!computerForm.get('name').discontinued">
+              this field is required
+              </mat-error>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      
+        <mat-form-field>
+          <mat-select placeholder="Company">
+            <mat-option value="option">Option</mat-option>
+          </mat-select>
+          <mat-error *ngIf="introducedBeforeDiscontinued()">
+            this field is required
+            </mat-error>
+        </mat-form-field>   
+    
+        <div class="container-contact1-form-btn">
+            <button mat-raised-button color="primary" [disabled]="computerForm.invalid" type="submit" >
+                    Add computer
+            </button>
+        </div>
+      </div>
+    </form>
+</div>

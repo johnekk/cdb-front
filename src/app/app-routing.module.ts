@@ -4,8 +4,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { ComputerListComponent } from './computer-list/computer-list.component';
 import { LoggingComponent } from './logging/logging.component';
 import { AuthGuard } from './auth/auth.guard';
+import { NewComputerComponent } from './new-computer/new-computer.component';
 
 const routes: Routes = [
+ 
+  
   {
     path: 'computers',
     canActivate: [AuthGuard],
@@ -15,6 +18,10 @@ const routes: Routes = [
   {
     path: 'logging',
     component: LoggingComponent,
+  },
+  {
+    path: 'computers/new', 
+    component: NewComputerComponent,
     pathMatch: 'full'
   },
   {
@@ -22,6 +29,7 @@ const routes: Routes = [
     redirectTo: 'computers',
     pathMatch: 'full'
   }
+  
 ];
 
 @NgModule({

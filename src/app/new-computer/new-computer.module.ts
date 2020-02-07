@@ -1,23 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NewComputerComponent } from './new-computer.component';
 import { CustomMaterialModule } from '../shared/custom-material/custom-material.module';
-import { ComputerListComponent } from './computer-list.component';
-import { MatSortModule } from '@angular/material/sort';
-import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
-  declarations: [ComputerListComponent],
+  declarations: [NewComputerComponent],
   imports: [
     CommonModule,
     CustomMaterialModule,
-    MatSortModule,
-    NgxSpinnerModule
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   exports: [
-    ComputerListComponent
+    NewComputerComponent
   ]
 })
-export class ComputerListModule { }
+export class NewComputerModule { 
+  
+
+}

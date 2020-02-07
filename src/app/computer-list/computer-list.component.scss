@@ -10,3 +10,29 @@
   td, th {
     width: 25%;
   }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+
+  .myContainer {
+    width: 90%;
+    margin : auto;
+  }
+
+  .mat-cell, .mat-header-cell{
+    padding : 15px;
+  }
+
+  .mat-header-cell{
+    font-size: large;
+  }
+
+  .delete-icon{
+    position: relative;
+    top: 5px;
+  }
+
+  .delete-icon:hover{
+    cursor: pointer;
+  }
