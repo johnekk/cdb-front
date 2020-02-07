@@ -51,62 +51,74 @@ export class NewComputerComponent implements OnInit {
   }
 
   onSubmitForm(){
+
     const formValue = this.computerForm.value;
 
-      let computer:ComputerDTO = new ComputerDTO();
-      computer.name = formValue['name'];
-   //   computer.introduced = formValue['introduced'];
-   //   computer.discontinued = formValue['discontinued'];  // YYYY-MM-DD
+    let introduced:Date = formValue['introduced'];
+    let discontinued:Date = formValue['discontinued'];
+
+    if(introduced && discontinued && introduced < discontinued){
+   
+          let computer:ComputerDTO = new ComputerDTO();
+          computer.name = formValue['name'];
+      //   computer.introduced = formValue['introduced'];
+      //   computer.discontinued = formValue['discontinued'];  // YYYY-MM-DD
 
 
-     let di:Date = new Date(formValue['introduced']);
+        let di:Date = new Date(formValue['introduced']);
 
-     let day : string = (di.getDate() > 9) ? (''+di.getDate()) : ('0' + (di.getDate() + 1));
-     let month : string = ((di.getMonth() + 1) > 9) ? (''+(di.getMonth() + 1)) : ('0' + (di.getMonth() + 1))
-     let year : string = di.getFullYear()  + ''
+        let day : string = (di.getDate() > 9) ? (''+di.getDate()) : ('0' + (di.getDate() + 1));
+        let month : string = ((di.getMonth() + 1) > 9) ? (''+(di.getMonth() + 1)) : ('0' + (di.getMonth() + 1))
+        let year : string = di.getFullYear()  + ''
 
-      computer.introduced =  year
-                    + '-' + month
-                    + '-' + day
+          computer.introduced =  year
+                        + '-' + month
+                        + '-' + day
+
+          
+
+          if(formValue['discontinued']){
+
+            console.log('in discontinued')
+            
+                let dd:Date = new Date(formValue['discontinued']);
+
+                let day2 : string = (dd.getDate() > 9) ? (''+dd.getDate()) : ('0' + (dd.getDate() + 1));
+                let month2 : string = ((dd.getMonth() + 1) > 9) ? (''+(dd.getMonth() + 1)) : ('0' + (dd.getMonth() + 1))
+                let year2 : string = dd.getFullYear()  + ''
+
+                  computer.discontinued =  year2
+                                + '-' + month2
+                                + '-' + day2
+
+          }
+          else computer.discontinued = ''
+
+          computer.companyDTO = new CompanyDTO();
+          computer.companyDTO.id = '2';
+          computer.companyDTO.name='toto'
+          console.log(computer);
+
+          this.computerService.newComputer(computer).subscribe(
+            ()=> {
+              console.log("computer:"+computer.name)
+              this.router.navigate(['/computers']);
+            },
+            (error) => {
+              console.log("computer not added : " + error)
+
+            }
+          )
+
+          console.log(computer.name)
+          console.log(computer.introduced)
+          console.log(computer.discontinued)
+
+    }
+
+   
 
       
-
-      if(formValue['discontinued']){
-
-        console.log('in discontinued')
-        
-            let dd:Date = new Date(formValue['discontinued']);
-
-            let day2 : string = (dd.getDate() > 9) ? (''+dd.getDate()) : ('0' + (dd.getDate() + 1));
-            let month2 : string = ((dd.getMonth() + 1) > 9) ? (''+(dd.getMonth() + 1)) : ('0' + (dd.getMonth() + 1))
-            let year2 : string = dd.getFullYear()  + ''
-
-              computer.discontinued =  year2
-                            + '-' + month2
-                            + '-' + day2
-
-      }
-      else computer.discontinued = ''
-
-      computer.companyDTO = new CompanyDTO();
-      computer.companyDTO.id = '2';
-      computer.companyDTO.name='toto'
-      console.log(computer);
-
-      this.computerService.newComputer(computer).subscribe(
-        ()=> {
-          console.log("computer:"+computer.name)
-          this.router.navigate(['/computers']);
-        },
-        (error) => {
-          console.log("computer not added : " + error)
-
-        }
-      )
-
-      console.log(computer.name)
-      console.log(computer.introduced)
-      console.log(computer.discontinued)
 
   //  }
 
