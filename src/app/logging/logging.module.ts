@@ -1,24 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CustomMaterialModule } from '../shared/custom-material/custom-material.module';
-import { LogginComponent } from './loggin.component';
-import { LogginFormComponent } from './loggin-form/loggin-form.component';
 import { MatInputModule, MatButtonModule } from '@angular/material';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoggingComponent } from './logging.component';
+import { LoggingFormComponent } from './logging-form/logging-form.component';
 
 
 
 @NgModule({
   declarations: [
-    LogginComponent,
-    LogginFormComponent
+    LoggingComponent,
+    LoggingFormComponent
   ],
   imports: [
     CommonModule,
     CustomMaterialModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
+    ReactiveFormsModule
   ], 
   exports: [
   ]
 })
-export class LogginModule { }
+export class LoggingModule { }

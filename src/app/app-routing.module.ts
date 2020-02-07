@@ -2,17 +2,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { ComputerListComponent } from './computer-list/computer-list.component';
-import { LogginComponent } from './loggin/loggin.component';
+import { LoggingComponent } from './logging/logging.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
   {
     path: 'computers',
+    canActivate: [AuthGuard],
     component: ComputerListComponent,
     pathMatch: 'full'
   },
   {
-    path: 'loggin',
-    component: LogginComponent,
+    path: 'logging',
+    component: LoggingComponent,
     pathMatch: 'full'
   },
   {
@@ -28,6 +30,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forRoot(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }

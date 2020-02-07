@@ -1,0 +1,19 @@
+<mat-card class="example-card">
+  <form [formGroup]="connectionForm" class="example-form">
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Username" [(ngModel)]="username" formControlName="username" name="username">
+        <mat-error *ngIf="!connectionForm.get('username').valid">
+            this field is required
+        </mat-error>
+    </mat-form-field>  
+    <mat-form-field class="example-full-width">
+        <input matInput type="password" placeholder="Password" [(ngModel)]="password" formControlName="password" name="password">
+        <mat-error *ngIf="!connectionForm.get('password').valid">
+            this field is required
+        </mat-error>
+    </mat-form-field>
+    <div class="example-button-row">
+        <button mat-raised-button color="primary" class="bouton" (click)="submit()">Log In</button>
+    </div>
+  </form> 
+</mat-card>
