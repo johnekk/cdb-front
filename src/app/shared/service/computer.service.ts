@@ -19,8 +19,8 @@ export class ComputerService {
       return this.httpClient.get<Computer[]>(this.url);
   }
 
-  newComputer(computer: ComputerDTO):Observable<ComputerDTO>{
-    return this.httpClient.post<ComputerDTO>(this.url, computer)
+  newComputer(computer: ComputerDTO): Observable<ComputerDTO> {
+    return this.httpClient.post<ComputerDTO>(this.url, computer);
   }
 
   deleteComputer(id: number): Observable<any> {

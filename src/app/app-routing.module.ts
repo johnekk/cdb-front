@@ -7,8 +7,6 @@ import { AuthGuard } from './auth/auth.guard';
 import { NewComputerComponent } from './new-computer/new-computer.component';
 
 const routes: Routes = [
- 
-  
   {
     path: 'computers',
     canActivate: [AuthGuard],
@@ -20,7 +18,7 @@ const routes: Routes = [
     component: LoggingComponent,
   },
   {
-    path: 'computers/new', 
+    path: 'computers/new',
     component: NewComputerComponent,
     pathMatch: 'full'
   },
@@ -29,7 +27,6 @@ const routes: Routes = [
     redirectTo: 'computers',
     pathMatch: 'full'
   }
-  
 ];
 
 @NgModule({
