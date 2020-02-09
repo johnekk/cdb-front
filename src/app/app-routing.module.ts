@@ -11,7 +11,6 @@ const routes: Routes = [
   
   {
     path: 'computers',
-    canActivate: [AuthGuard],
     component: ComputerListComponent,
     pathMatch: 'full'
   },
@@ -23,6 +22,14 @@ const routes: Routes = [
     path: 'computers/new', 
     component: NewComputerComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'fr',
+    component: LoggingComponent,
+  },
+  {
+    path: 'en',
+    component: LoggingComponent,
   },
   {
     path: '**',
