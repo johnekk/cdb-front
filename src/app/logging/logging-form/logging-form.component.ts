@@ -9,8 +9,8 @@ import { LoggingService } from 'src/app/shared/service/logging.service';
   styleUrls: ['./logging-form.component.scss']
 })
 export class LoggingFormComponent implements OnInit {
-  username: '';
-  password: '';
+  username: string;
+  password: string;
   connectionForm: AbstractControl;
   errorLogin: boolean;
 
@@ -42,7 +42,6 @@ export class LoggingFormComponent implements OnInit {
     );
   }
   submit(): void {
-    console.log('Tentative de connexion');
     if (this.username === 'username' && this.password === 'password') {
       console.log('succes');
       this.errorLogin = false;
