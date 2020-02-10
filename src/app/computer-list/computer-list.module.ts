@@ -5,6 +5,7 @@ import { ComputerListComponent } from './computer-list.component';
 import { MatSortModule } from '@angular/material/sort';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { MatFormFieldModule } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -14,7 +15,8 @@ import { MatFormFieldModule } from '@angular/material';
     CommonModule,
     CustomMaterialModule,
     MatSortModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    RouterModule
   ],
   exports: [
     ComputerListComponent

@@ -22,6 +22,14 @@ export class ComputerService {
       return this.httpClient.get<Computer[]>(this.url);
   }
 
+  getComputer(id: number): Observable<ComputerDTO> {
+    return this.httpClient.get<ComputerDTO>(this.url+ `/${id}`);
+  }
+
+  updateComputer(id: number, computerDTO:ComputerDTO): Observable<ComputerDTO> {
+    return this.httpClient.put<ComputerDTO>(this.url+ `/${id}`, computerDTO);
+  }
+
   getCompanies(): Observable<CompanyDTO[]> {
     return this.httpClient.get<CompanyDTO[]>(this.urlCompanies);
 }

@@ -6,6 +6,7 @@ import { Computer } from '../shared/model/computer.model';
 import { ComputerService } from '../shared/service/computer.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-computer-list',
@@ -26,7 +27,8 @@ export class ComputerListComponent implements OnInit {
 
   constructor(
       private readonly computerService: ComputerService,
-      private readonly spinnerService: NgxSpinnerService
+      private readonly spinnerService: NgxSpinnerService,
+      private router: Router
   ) {
       this.allComputers();
       this.selectionMode = false;
@@ -91,5 +93,10 @@ export class ComputerListComponent implements OnInit {
         }
       )
     );
+  }
+
+
+  edit(computer: Computer){
+    this.router.navigate(['/computers/edit',  { id: computer.id }]);
   }
 }
