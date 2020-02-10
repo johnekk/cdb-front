@@ -1,14 +1,15 @@
-.bodystyle {
-    background-image:url(../../assets/img/office-925806.jpg);
-    height: 1100px;
+.container-logging {
+    /*background-image:url(../../assets/img/office-925806.jpg);
     background-size: cover;
-
+    width: 100%;
+    height: auto;*/
+    background-color: #0B76B8;
 }
 .title {
     position: relative; 
     top: 160px;
     margin:auto;
-    color: rgba(122, 176, 238, 0.548); 
+    color: rgba(255, 255, 255, 1); 
     font-family: "SF Pro Text";
     font-size: 100px;
     font-weight: bold;
