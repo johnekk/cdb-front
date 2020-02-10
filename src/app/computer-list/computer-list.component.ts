@@ -26,7 +26,7 @@ export class ComputerListComponent implements OnInit {
 
   constructor(
       private readonly computerService: ComputerService,
-      private readonly spinnerService: NgxSpinnerService
+      private readonly spinnerService: NgxSpinnerService,
   ) {
       this.allComputers();
       this.selectionMode = false;

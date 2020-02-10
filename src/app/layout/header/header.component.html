@@ -1,10 +1,10 @@
 <mat-toolbar class="header">
     <mat-toolbar-row>
-      <img src="../../../assets/img/Groupe 1.png" class="logo">
+      <img src="../../../assets/img/Groupe 1.png" class="logo" [routerLink] ="['/computers']" routerLinkActive="active">
       <span class="product-title">CDB</span>
       <span class="example-spacer"></span>
       <img src="../../../assets/img/login.png" alt="avatar" class="header-image">
-      <img src="../../../assets/img/logout.png" class="logout">
+      <img src="../../../assets/img/logout.png" class="logout" [routerLink] ="['/logging']" routerLinkActive="active">
       <!--<mat-icon class="example-icon" aria-hidden="false" aria-label="Example user verified icon">verified_user</mat-icon>-->
     </mat-toolbar-row>
   </mat-toolbar>

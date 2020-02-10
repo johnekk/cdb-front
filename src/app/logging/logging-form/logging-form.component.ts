@@ -26,17 +26,31 @@ export class LoggingFormComponent implements OnInit {
     });
   }
 
-  submit(): void {
+  submitt(): void {
     console.log('Tentative de connexion');
-    this.loggingService.getUser(this.username, this.password)
+    this.loggingService.Login(this.username, this.password)
     .subscribe(
       () => {
+        console.log('succes');
         this.errorLogin = false;
         this.router.navigate(['/computers']);
       }, (error => {
+        console.log(error);
         this.errorLogin = true;
         this.router.navigate(['/logging']);
       })
     );
+  }
+  submit(): void {
+    console.log('Tentative de connexion');
+    if (this.username === 'username' && this.password === 'password') {
+      console.log('succes');
+      this.errorLogin = false;
+      this.router.navigate(['/computers']);
+    } else {
+      console.log('error');
+      this.errorLogin = true;
+      this.router.navigate(['/logging']);
+    }
   }
 }

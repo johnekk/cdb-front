@@ -1,9 +1,12 @@
-  <div class="myContainer">
-    
+<app-header></app-header>
+<div class="myContainer">
+  <div align="right">
+    <button mat-raised-button color="primary" [routerLink] ="['/computers/new']" routerLinkActive="active" class="newComputerButton">New computer</button> 
+  </div>
     <mat-form-field>
       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
     </mat-form-field>
-    
+
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8"> 
 
        <!-- Checkbox Column -->

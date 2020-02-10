@@ -19,8 +19,8 @@ import { LoggingFormComponent } from './logging-form/logging-form.component';
     MatInputModule,
     MatButtonModule,
     FormsModule,
-    ReactiveFormsModule
-  ], 
+    ReactiveFormsModule,
+  ],
   exports: [
   ]
 })

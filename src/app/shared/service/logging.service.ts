@@ -7,12 +7,15 @@ import { User } from '../model/user.model';
   providedIn: 'root'
 })
 export class LoggingService {
-  public ip = '10.0.1.65';
-  public url = 'http://' + this.ip + ':8080/computer-database/computers';
+  public ip = '10.0.1.76';
+  public url = 'http://' + this.ip + ':8080/computer-database/users';
+
+  public user: User;
 
   constructor(private readonly httpClient: HttpClient) { }
 
-  getUser(username: string, password: string): Observable<User> {
-      return this.httpClient.get<User>(this.url);
+  Login(username: string, password: string): Observable<User> {
+    console.log('interieur du login');
+    return this.httpClient.post<User>(this.url, {username, password});
   }
 }

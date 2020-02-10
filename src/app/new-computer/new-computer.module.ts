@@ -4,6 +4,7 @@ import { NewComputerComponent } from './new-computer.component';
 import { CustomMaterialModule } from '../shared/custom-material/custom-material.module';
 import { MatFormFieldModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LayoutModule } from '../layout/layout.module';
 
 
 
@@ -14,13 +15,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     CustomMaterialModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    LayoutModule
   ],
   exports: [
     NewComputerComponent
   ]
 })
-export class NewComputerModule { 
-  
+export class NewComputerModule {
 
 }
