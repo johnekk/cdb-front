@@ -22,7 +22,9 @@ export class NewComputerComponent implements OnInit {
   maxDate: Date;
   minDateDiscontinued: Date;
   isDateBefore: boolean;
-  
+  isDateBefore2: boolean = false;
+  companyList: CompanyDTO[];
+  mycompany: CompanyDTO;
 
   constructor(private computerService: ComputerService,
     private formBuilder: FormBuilder,
@@ -30,6 +32,12 @@ export class NewComputerComponent implements OnInit {
       const currentYear = new Date().getFullYear();
       this.minDate = new Date(currentYear - 49, 0, 1);
       this.maxDate = new Date(currentYear + 100, 11, 31);
+
+      this.computerService.getCompanies().subscribe(
+        (result: CompanyDTO[]) => {
+          this.companyList = result;
+        }
+)
   }
 
   ngOnInit() {
@@ -40,7 +48,8 @@ export class NewComputerComponent implements OnInit {
     this.computerForm = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       introduced: ['', [Validators.required]],
-      discontinued: ['']
+      discontinued: [''],
+      company: ['', Validators.required]
     });
 
 
@@ -56,8 +65,15 @@ export class NewComputerComponent implements OnInit {
 
     let introduced:Date = formValue['introduced'];
     let discontinued:Date = formValue['discontinued'];
+    let company:CompanyDTO = formValue['company'];
+    
 
-    if(introduced && discontinued && introduced < discontinued){
+    if(introduced && discontinued && company && introduced < discontinued){
+
+        
+
+          console.log('>'+company.id)
+          console.log('>'+company.name)
    
           let computer:ComputerDTO = new ComputerDTO();
           computer.name = formValue['name'];
@@ -95,8 +111,10 @@ export class NewComputerComponent implements OnInit {
           else computer.discontinued = ''
 
           computer.companyDTO = new CompanyDTO();
-          computer.companyDTO.id = '2';
-          computer.companyDTO.name='toto'
+          computer.companyDTO.id = 
+                        ''+company.id
+          computer.companyDTO.name = company.name
+
           console.log(computer);
 
           this.computerService.newComputer(computer).subscribe(
@@ -113,12 +131,8 @@ export class NewComputerComponent implements OnInit {
           console.log(computer.name)
           console.log(computer.introduced)
           console.log(computer.discontinued)
-
-    }
-
-   
-
-      
+      }else if(introduced > discontinued) this.isDateBefore2 = true;
+      else this.isDateBefore = false;
 
   //  }
 
