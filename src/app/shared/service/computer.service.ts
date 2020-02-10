@@ -8,7 +8,7 @@ import { ComputerDTO } from '../model/computerDTO.model';
   providedIn: 'root'
 })
 
-export class ComputerService {
+export class ComputerService {  
 
   public ip = '10.0.1.76';
   public url = 'http://' + this.ip + ':8080/computer-database/computers';
