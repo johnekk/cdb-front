@@ -4,12 +4,25 @@
     border-radius: 75%;
     padding: 0 14px;
   }
-
-  
  .example-spacer {
     flex: 1 1 auto;
  }
-
  .product-title {
     font-weight: bold;
+    font-family: "SF Pro Text";
+ }
+ .header {
+    background-color: #5A7ECC;
+    color: white;
+    font-weight: bolder;
+    font-size: 24px;
+ }
+ .logo {
+   width: 40px;
+   height: 40px;
+   margin-right: 12px;
+ }
+ .logout {
+   width: 24px;
+   height: 30px;  
  }

@@ -12,12 +12,14 @@ export class LoggingFormComponent implements OnInit {
   username: '';
   password: '';
   connectionForm: AbstractControl;
+  errorLogin: boolean;
 
   constructor(private readonly formBuilder: FormBuilder,
               private readonly router: Router,
-              private readonly loggingService: LoggingService,) { }
+              private readonly loggingService: LoggingService) { }
 
   ngOnInit() {
+    this.errorLogin = false;
     this.connectionForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
@@ -26,11 +28,15 @@ export class LoggingFormComponent implements OnInit {
 
   submit(): void {
     console.log('Tentative de connexion');
-    // Vérifier que login/mdp sont correctes, par exemple par une requête à un service REST
-    localStorage.setItem('username', this.username);
-    
-    this.loggingService.getUser(this.username,this.password)
-        .subscribe(() => this.router.navigate(['/computers']));
-    this.router.navigate(['/computers']);
+    this.loggingService.getUser(this.username, this.password)
+    .subscribe(
+      () => {
+        this.errorLogin = false;
+        this.router.navigate(['/computers']);
+      }, (error => {
+        this.errorLogin = true;
+        this.router.navigate(['/logging']);
+      })
+    );
   }
 }
