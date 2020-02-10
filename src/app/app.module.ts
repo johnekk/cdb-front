@@ -11,10 +11,12 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { NewComputerModule } from './new-computer/new-computer.module';
+import { EditComputerComponent } from './edit-computer/edit-computer.component';
+import { EditComputerModule } from './edit-computer/edit-computer.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,9 @@ import { NewComputerModule } from './new-computer/new-computer.module';
     MatInputModule,
     MatButtonModule,
     NgxSpinnerModule,
-    NewComputerModule
+    NewComputerModule,
+    EditComputerModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

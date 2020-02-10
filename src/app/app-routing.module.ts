@@ -5,6 +5,7 @@ import { ComputerListComponent } from './computer-list/computer-list.component';
 import { LoggingComponent } from './logging/logging.component';
 import { AuthGuard } from './auth/auth.guard';
 import { NewComputerComponent } from './new-computer/new-computer.component';
+import { EditComputerComponent } from './edit-computer/edit-computer.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'computers/new',
     component: NewComputerComponent,
+    pathMatch: 'full'
+  },
+  {
+    path: 'computers/edit',
+    component: EditComputerComponent,
     pathMatch: 'full'
   },
   {
