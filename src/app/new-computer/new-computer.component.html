@@ -28,13 +28,15 @@
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
-      
+        <label style="color: red;" *ngIf="isDateBefore2">Date introduced must be before date discontinued</label>
         <mat-form-field>
-          <mat-select placeholder="Company">
-            <mat-option value="option">Option</mat-option>
+          <mat-select placeholder="Company" formControlName="company" [(ngModel)]="mycompany">
+            <mat-option *ngFor="let company of companyList" [value]="company" > {{company.name}} </mat-option>
           </mat-select>
-        </mat-form-field>   
-    
+        </mat-form-field>
+
+       
+       
         <div class="container-contact1-form-btn">
             <button mat-raised-button color="primary" [disabled]="computerForm.invalid" type="submit" >
                     Add computer
